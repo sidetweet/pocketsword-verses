@@ -27,7 +27,8 @@
                   {{view Todos.EditTodoView todoBinding="this"}}
                 {{else}}
                   {{view Ember.Checkbox checkedBinding="isCompleted" class="toggle"}}
-                  <label {{action "editTodo" on="doubleClick"}}><a {{bindAttr href="urlFromTitle"}}>{{title}}</a></label>
+                  <label><a {{bindAttr href="urlFromTitle"}}>{{title}}</a></label>
+                  <button {{action "editTodo"}} class="edit-button">edit</button>
                   <button {{action "removeTodo"}} class="destroy"></button>
                 {{/if}}
                 </li>
@@ -60,7 +61,6 @@
     </section>
 
     <footer id="info">
-      <p>Double-click to edit a todo</p>
       <p>
         Created by
         <a href="http://github.com/tomdale">Tom Dale</a>,
