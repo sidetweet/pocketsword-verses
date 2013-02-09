@@ -5,10 +5,23 @@ Todos.TodosController = Ember.ArrayController.extend({
 		if (!title.trim()) { return; }
 
 		// Create the new Todo model
-		Todos.Todo.createRecord({
-			title: title,
-			isCompleted: false
-		});
+		// Todos.Todo.createRecord({
+		// 	title: title,
+		// 	isCompleted: false
+		// });
+
+		var verses = title.split(/(?:[\s;,]+)(?=[1-3]?[A-Za-z]+)/);
+
+		Ember.EnumerableUtils.forEach(verses, function(item) {
+			var verse = item.trim();
+			if (verse) {
+				// Create the new Todo model
+				Todos.Todo.createRecord({
+					title: verse.replace(/^[1-3]?([a-z])/, function(m){ return m.toUpperCase() }).replace(/(\d)\s(\d)/,"$1:$2"),
+					isCompleted: false
+				});				
+			}
+		})
 
 		// Clear the "New Todo" text field
 		this.set('newTitle', '');
