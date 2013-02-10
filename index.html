@@ -28,7 +28,7 @@
                 {{else}}
                   {{view Ember.Checkbox checkedBinding="isCompleted" class="toggle"}}
                   <label><a {{bindAttr href="urlFromTitle"}}>{{title}}</a></label>
-                  <button {{action "editTodo"}} class="edit-button">edit</button>
+                  <button {{action "editTodo"}} class="edit-button"></button>
                   <button {{action "removeTodo"}} class="destroy"></button>
                 {{/if}}
                 </li>

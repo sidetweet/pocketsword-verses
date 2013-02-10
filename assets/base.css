@@ -319,6 +319,10 @@ label[for='toggle-all'] {
 	transform: scale(1.3);
 }
 
+#todo-list li .edit-button:after {
+	content: 'edit';
+}
+
 #todo-list li .edit {
 	display: none;
 }
